@@ -48,7 +48,7 @@ const Home = () => {
             ...chatLog,
             {
               chatPrompt: inputPrompt,
-              botMessage: data.message,
+              botMessage: JSON.stringify(data),
             },
           ]);
           setErr(false);
