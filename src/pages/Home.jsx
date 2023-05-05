@@ -17,6 +17,8 @@ const Home = () => {
 
   const chatLogRef = useRef(null);
 
+  const currentUser = JSON.parse(localStorage.getItem("user")) || null;
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -33,10 +35,10 @@ const Home = () => {
 
       async function callAPI() {
         try {
-          const response = await fetch("https://talk-bot.onrender.com/", {
+          const response = await fetch("http://localhost:8090/api/v1/offer", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: inputPrompt }),
+            body: JSON.stringify({ merchantId:currentUser, message: inputPrompt }),
           });
           const data = await response.json();
           setChatLog([
