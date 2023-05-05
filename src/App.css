@@ -88,7 +88,6 @@ nav {
   text-indent: 0;
   white-space: pre-wrap;
   position: relative;
-  top: -45px;
 }
 pre {
   font-family: var(--text-font);
@@ -292,8 +291,8 @@ form button {
   background: rgb(65, 65, 78);
   border: none;
   position: absolute;
-  top: 20%;
-  right: 15px;
+  top: 15%;
+  right: 10px;
   width: 35px;
   height: 45px;
 }
@@ -438,4 +437,14 @@ form button {
   width: 200px;
   margin-bottom: 25px;
   height: 90px;
+}
+
+.side-logo-small {
+  width: 60px;
+}
+
+.navPrompt span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

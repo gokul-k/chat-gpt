@@ -1,18 +1,23 @@
 import React from "react";
 
-const NewChat = ({ setChatLog, setShowMenu }) => {
+const SuggestedChat = ({ setChatLog, setShowMenu }) => {
   return (
     <div
       className="sideMenuButton"
-      onClick={() => {
-        setChatLog([]);
-        setShowMenu(false);
-      }}
     >
-      <span>+</span>
-      New chat
+      Suggested Chats
     </div>
   );
 };
 
-export default NewChat;
+const NewChat = ({ setChatLog, setShowMenu }) => {
+  return (
+    <div
+      className="sideMenuButton"
+    >
+      Previous Chats
+    </div>
+  );
+};
+
+export { NewChat, SuggestedChat };

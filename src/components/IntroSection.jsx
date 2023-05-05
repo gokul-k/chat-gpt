@@ -5,27 +5,22 @@ const IntroSection = () => {
   return (
     <div id="introsection">
       <h1>
-        Introducing Talkbot
-        <BotResponse response=" - The Ultimate AI Assistant" />
+        Introducing Yoda
+        <BotResponse response=" - Your Offer AI assistant" />
       </h1>
       <h2>
-        A cutting-edge AI-powered app that provides instant answers to any
-        question you may have. With Talkbot, you'll never be left searching for
-        answers again. Whether you need information for school or work, or just
-        want to know the latest news, Talkbot has you covered.
+        PayU Offer Engine helps you create offers in way you never imagined before. All you need to do is tell Yoda what you want. No more worries on offers and promotions, cause Yoda has you covered.
+        <br />
       </h2>
       Features:
       <ul>
-        <li>Instant answers to any question</li>
-        <li>Deep learning technology that improves with usage</li>
-        <li>Continuously Learning</li>
-        <li>User-friendly interface</li>
-        <li>Available 24/7</li>
+        <li>Creating Offers of your choice</li>
+        <li>Opt in for recommended offers for your customers</li>
+        <li>Check performance of your live offers</li>
+        <li>Boost efficiency of your offers with AI generated insights</li>
       </ul>
       <p>
-        Say goodbye to endless searching and typing, and say hello to TalkBot,
-        your personal AI assistant. Try it now and see for yourself how TalkBot
-        can make your life easier.
+        Say goodbye to multiple clicks and operational burden, whether you need information or create an offer, type it in for Yoda.
       </p>
     </div>
   );

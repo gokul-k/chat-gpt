@@ -24,8 +24,8 @@ const Login = () => {
       <div className="loginContainer">
         <div className="loginContainerContent">
           <img src={payuLogo} />
-          <h1>Welcome to Offer Engine</h1>
-          <p>Your Ultimate Offer AI Assistant</p>
+          <h1>Welcome to Offers+</h1>
+          <p>Introducing Yoda - Your Offer AI assistant</p>
           <div className="loginButtonWrapper">
             {showLoginUserName ? (
               <>

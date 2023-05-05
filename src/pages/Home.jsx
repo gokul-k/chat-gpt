@@ -7,6 +7,9 @@ import Loading from "../components/Loading";
 import NavContent from "../components/NavContent";
 import SvgComponent from "../components/SvgComponent";
 import payuLogo from "../hack@payu.png"
+import payuLogoSmall from "../hack@payuSmall.png"
+import amazon from "../amazon.png"
+import onePlus from "../one-plus.png"
 
 const Home = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -16,6 +19,8 @@ const Home = () => {
   const [responseFromAPI, setReponseFromAPI] = useState(false);
 
   const chatLogRef = useRef(null);
+
+  const currentUser = JSON.parse(localStorage.getItem("user")) || null;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,17 +38,17 @@ const Home = () => {
 
       async function callAPI() {
         try {
-          const response = await fetch("https://talk-bot.onrender.com/", {
+          const response = await fetch("http://localhost:8889/api/v1/offer", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: inputPrompt }),
+            body: JSON.stringify({ merchantId: currentUser, message: inputPrompt }),
           });
           const data = await response.json();
           setChatLog([
             ...chatLog,
             {
               chatPrompt: inputPrompt,
-              botMessage: data.botResponse,
+              botMessage: data.message,
             },
           ]);
           setErr(false);
@@ -67,7 +72,7 @@ const Home = () => {
       });
     }
 
-    return () => {};
+    return () => { };
   }, []);
 
   return (
@@ -118,12 +123,13 @@ const Home = () => {
       )}
 
       <aside className="sideMenu">
-      <img src={payuLogo} className="side-logo" />
+        <img src={payuLogo} className="side-logo" />
 
         <NavContent
           chatLog={chatLog}
           setChatLog={setChatLog}
           setShowMenu={setShowMenu}
+          setInputPrompt={setInputPrompt}
         />
       </aside>
 
@@ -144,22 +150,33 @@ const Home = () => {
                   <div className="chatPromptMainContainer">
                     <div className="chatPromptWrapper">
                       <Avatar bg="#5437DB" className="userSVG">
-                        <svg
-                          stroke="currentColor"
-                          fill="none"
-                          strokeWidth={1.9}
-                          viewBox="0 0 24 24"
-                          // strokeLinecap="round"
-                          // strokeLinejoin="round"
-                          className="h-6 w-6"
-                          height={40}
-                          width={40}
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                          <circle cx={12} cy={7} r={4} />
-                        </svg>
+                        {
+                          currentUser === "180012" ?
+                            <img src={amazon} className="side-logo-small" />
+
+                            : currentUser === "180013" ?
+                              <img src={onePlus} className="side-logo-small" />
+
+                              :
+                              <svg
+                                stroke="currentColor"
+                                fill="none"
+                                strokeWidth={1.9}
+                                viewBox="0 0 24 24"
+                                // strokeLinecap="round"
+                                // strokeLinejoin="round"
+                                className="h-6 w-6"
+                                height={40}
+                                width={40}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx={12} cy={7} r={4} />
+                              </svg>
+                        }
+
                       </Avatar>
+
                       <div id="chatPrompt">{chat.chatPrompt}</div>
                     </div>
                   </div>
@@ -167,7 +184,7 @@ const Home = () => {
                   <div className="botMessageMainContainer">
                     <div className="botMessageWrapper">
                       <Avatar bg="#11a27f" className="openaiSVG">
-                        <SvgComponent w={41} h={41} />
+                        <img src={payuLogoSmall} className="side-logo-small" />
                       </Avatar>
                       {chat.botMessage ? (
                         <div id="botMessage">
