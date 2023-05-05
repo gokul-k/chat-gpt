@@ -197,7 +197,7 @@ nav svg {
 }
 
 .chatPromptWrapper {
-  max-width: 800px;
+  max-width: 80%;
   margin: auto;
   padding: 24px;
   text-align: left;
@@ -216,7 +216,7 @@ nav svg {
   position: relative;
 }
 .botMessageWrapper {
-  max-width: 800px;
+  max-width: 80%;
   margin: auto;
   padding: 24px;
   text-align: left;
